@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:olympic_games/ui/widgets/olympic_ring.dart';
 
@@ -82,6 +84,128 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Stack(
+                        alignment: Alignment.center,
+                        children: <Widget>[
+                          // this is hacky fix for a small problem regarding
+                          // positioning widgets in a stack.
+                          Container(
+                            // width: MediaQuery.of(context).size.width,
+                            width: 100,
+                            height: 50,
+                          ),
+                          Positioned(
+                            left: 2,
+                            child: OlympicRing(
+                              radius: 15,
+                              borderWidth: 2,
+                              color: Color(0xff0098C6),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            left: 19,
+                            child: OlympicRing(
+                              radius: 15,
+                              borderWidth: 2,
+                              color: Color(0xffFFB419),
+                            ),
+                          ),
+                          Positioned(
+                            right: 0,
+                            left: 0,
+                            child: OlympicRing(
+                              radius: 15,
+                              borderWidth: 2,
+                              color: Color(0xff000000),
+                            ),
+                          ),
+                          Positioned(
+                            right: 0,
+                            child: OlympicRing(
+                              radius: 15,
+                              borderWidth: 2,
+                              color: Color(0xffB7303E),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            right: 19,
+                            child: OlympicRing(
+                              radius: 15,
+                              borderWidth: 2,
+                              color: Color(0xff1B573D),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                    ),
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        style: TextStyle(
+                          color: Color(0xff000000),
+                          fontSize: 16,
+                        ),
+                        children: <InlineSpan>[
+                          TextSpan(
+                            text:
+                                "Welcome to the official app for the Olympic and Paralympic Games of",
+                          ),
+                          TextSpan(text: "\n"),
+                          TextSpan(
+                            text: "Tokyo 2020!",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xff000000),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5000),
+                      ),
+                    ),
+                    onPressed: () {
+                      log(
+                        "Clicked on 'continue' button",
+                        name: "HomeView",
+                        time: DateTime.now(),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 40,
+                      ),
+                      child: Text(
+                        "Continue",
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
