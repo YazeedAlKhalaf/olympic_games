@@ -9,7 +9,6 @@ class OlympicGames extends StatelessWidget {
     return MaterialApp(
       title: "Olympic Games",
       theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
       home: HomeView(),
     );
   }
