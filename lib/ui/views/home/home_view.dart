@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:olympic_games/ui/views/choose_team/choose_team_view.dart';
 import 'package:olympic_games/ui/widgets/olympic_ring.dart';
 
 class HomeView extends StatelessWidget {
@@ -184,11 +185,17 @@ class HomeView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5000),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       log(
                         "Clicked on 'continue' button",
                         name: "HomeView",
                         time: DateTime.now(),
+                      );
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ChooseTeamView(),
+                        ),
                       );
                     },
                     child: Padding(

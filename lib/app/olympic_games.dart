@@ -11,6 +11,14 @@ class OlympicGames extends StatelessWidget {
       title: "Olympic Games",
       theme: ThemeData.light(),
       home: HomeView(),
+      builder: (BuildContext context, Widget? child) {
+        return GestureDetector(
+          onTap: () {
+            FocusManager.instance.primaryFocus!.unfocus();
+          },
+          child: child,
+        );
+      },
     );
   }
 }
