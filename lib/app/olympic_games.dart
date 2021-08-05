@@ -7,6 +7,7 @@ class OlympicGames extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Olympic Games",
       theme: ThemeData.light(),
       home: HomeView(),
